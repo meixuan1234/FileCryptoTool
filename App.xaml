@@ -1,0 +1,76 @@
+<Application
+    x:Class="FileCryptoTool.App"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:FileCryptoTool"
+    RequestedTheme="Dark">
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <!-- 引入 WinUI 3 控件资源字典，确保使用 Fluent 设计体系 -->
+                <XamlControlsResources xmlns="using:Microsoft.UI.Xaml.Controls" />
+            </ResourceDictionary.MergedDictionaries>
+
+            <!-- ===== TRAE 风格配色：深色优先、低饱和度、纯色无渐变 ===== -->
+            <SolidColorBrush x:Key="AppBackground" Color="#1E1E1E" />
+            <SolidColorBrush x:Key="PanelBackground" Color="#252526" />
+            <SolidColorBrush x:Key="FieldBackground" Color="#2D2D30" />
+            <SolidColorBrush x:Key="Hairline" Color="#3F3F46" />
+            <SolidColorBrush x:Key="Accent" Color="#4C9ED9" />
+            <SolidColorBrush x:Key="AccentHover" Color="#5FA8DE" />
+            <SolidColorBrush x:Key="AccentPressed" Color="#3D85BE" />
+            <SolidColorBrush x:Key="Disabled" Color="#3F3F46" />
+            <SolidColorBrush x:Key="TextPrimary" Color="#E8E8E8" />
+            <SolidColorBrush x:Key="TextSecondary" Color="#9D9D9D" />
+            <SolidColorBrush x:Key="StatusSuccess" Color="#4EC9B0" />
+            <SolidColorBrush x:Key="StatusError" Color="#E5534B" />
+            <SolidColorBrush x:Key="StatusProcessing" Color="#4C9ED9" />
+            <SolidColorBrush x:Key="StatusInfo" Color="#9D9D9D" />
+
+            <!-- ===== 主操作按钮样式（TRAE 蓝，纯色无渐变）===== -->
+            <Style x:Key="PrimaryButtonStyle" TargetType="Button">
+                <Setter Property="Background" Value="{StaticResource Accent}" />
+                <Setter Property="Foreground" Value="White" />
+                <Setter Property="BorderThickness" Value="0" />
+                <Setter Property="CornerRadius" Value="4" />
+                <Setter Property="Padding" Value="16,8" />
+                <Setter Property="FontSize" Value="14" />
+                <Setter Property="FontWeight" Value="SemiBold" />
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="Button">
+                            <Grid x:Name="RootGrid" Background="{TemplateBinding Background}">
+                                <VisualStateManager.VisualStateGroups>
+                                    <VisualStateGroup x:Name="CommonStates">
+                                        <VisualState x:Name="Normal" />
+                                        <VisualState x:Name="PointerOver">
+                                            <VisualState.Setters>
+                                                <Setter Target="RootGrid.Background" Value="{StaticResource AccentHover}" />
+                                            </VisualState.Setters>
+                                        </VisualState>
+                                        <VisualState x:Name="Pressed">
+                                            <VisualState.Setters>
+                                                <Setter Target="RootGrid.Background" Value="{StaticResource AccentPressed}" />
+                                            </VisualState.Setters>
+                                        </VisualState>
+                                        <VisualState x:Name="Disabled">
+                                            <VisualState.Setters>
+                                                <Setter Target="RootGrid.Background" Value="{StaticResource Disabled}" />
+                                                <Setter Target="RootGrid.Opacity" Value="0.6" />
+                                            </VisualState.Setters>
+                                        </VisualState>
+                                    </VisualStateGroup>
+                                </VisualStateManager.VisualStateGroups>
+                                <ContentPresenter
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Center"
+                                    Content="{TemplateBinding Content}"
+                                    Foreground="{TemplateBinding Foreground}" />
+                            </Grid>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

@@ -1,0 +1,14 @@
+# 构建产物
+bin/
+obj/
+
+# ARG 剧情测试文件（不公开）
+01_FUTURE_MAIL.enc
+
+# IDE
+.vs/
+*.user
+*.suo
+
+# 调试/日志
+*.log
